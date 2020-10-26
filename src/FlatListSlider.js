@@ -41,6 +41,7 @@ export default class FlatListSlider extends Component {
     this.state = {
       index: 0,
       data: this.props.data,
+      refresh: false
     };
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -103,6 +104,7 @@ export default class FlatListSlider extends Component {
           initialNumToRender={1}
           maxToRenderPerBatch={1}
           removeClippedSubviews={true}
+          extraData={this.state.refresh}
         />
         {this.props.indicator && (
           <Indicator
@@ -172,6 +174,13 @@ export default class FlatListSlider extends Component {
       this.sliderTimer = null;
     }
   };
+
+  refresh = () =>{
+    this.setState({
+      index: 0,
+      refresh: !this.state.refresh
+    })
+  }
 }
 
 const styles = StyleSheet.create({
