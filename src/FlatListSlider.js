@@ -175,12 +175,7 @@ export default class FlatListSlider extends Component {
     }
   };
 
-  refresh = () => {
-    this.setState({
-      index: 0,
-      refresh: !this.state.refresh
-    })
-  };
+
 }
 
 const styles = StyleSheet.create({
